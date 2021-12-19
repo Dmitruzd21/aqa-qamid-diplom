@@ -1,1 +1,1 @@
-## **CI - status:** 
+## **CI - status:** [![Java CI with Gradle](https://github.com/Dmitruzd21/aqa-qamid-diplom/actions/workflows/gradle.yml/badge.svg)](https://github.com/Dmitruzd21/aqa-qamid-diplom/actions/workflows/gradle.yml)
