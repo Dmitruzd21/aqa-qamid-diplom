@@ -31,3 +31,7 @@
 Проведение тестирования - 2 часа/1,5 часа
 
 Формирование отчета о тестировании - 2 часа/около 2 часов
+
+### **Allure Report**
+
+![AllureReport](https://github.com/Dmitruzd21/aqa-qamid-diplom/blob/master/FinalAllureReport/FinalAllure%20Report1.png)
