@@ -32,11 +32,11 @@ public class PaymentWithCardPage {
     }
 
     public void validMonth() {
-        month.setValue(DataGenerator.generateMonth());
+        month.setValue(DataGenerator.generateValidMonth());
     }
 
     public void validYear() {
-        year.setValue(DataGenerator.generateYear());
+        year.setValue(DataGenerator.generateValidYear());
     }
 
     public void validOwner() {
@@ -102,7 +102,7 @@ public class PaymentWithCardPage {
 
     public void invalidMonthFormat() {
         validCardNumber();
-        month.setValue("2");
+        month.setValue(DataGenerator.generateInvalidMonthFormat());
         validYear();
         validOwner();
         validCVC();
@@ -166,7 +166,7 @@ public class PaymentWithCardPage {
     public void pastYear() {
         validCardNumber();
         validMonth();
-        year.setValue("20");
+        year.setValue(DataGenerator.generatePastYear());
         validOwner();
         validCVC();
         buttonContinue.click();
@@ -237,7 +237,7 @@ public class PaymentWithCardPage {
         validCardNumber();
         validMonth();
         validYear();
-        owner.setValue("5347457");
+        owner.setValue(DataGenerator.generateNumber());
         validCVC();
         buttonContinue.click();
     }
@@ -247,7 +247,7 @@ public class PaymentWithCardPage {
         validMonth();
         validYear();
         validOwner();
-        cvcCvv.setValue("22");
+        cvcCvv.setValue(DataGenerator.generateTwoFigures());
         buttonContinue.click();
     }
 
@@ -256,7 +256,7 @@ public class PaymentWithCardPage {
         validMonth();
         validYear();
         validOwner();
-        cvcCvv.setValue("2");
+        cvcCvv.setValue(DataGenerator.generateOneFigure());
         buttonContinue.click();
     }
 

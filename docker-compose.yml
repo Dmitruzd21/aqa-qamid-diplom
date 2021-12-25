@@ -10,4 +10,4 @@ services:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_PASSWORD=21uzd
       - MYSQL_USER=dmitry
-      - MYSQL_DATABASE=diplom-project
+      - MYSQL_DATABASE=diplom
