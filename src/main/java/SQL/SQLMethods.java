@@ -3,7 +3,6 @@ package SQL;
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +12,10 @@ public class SQLMethods {
     String url = "jdbc:mysql://127.0.0.1:3308/diplom";
     String user = "dmitry";
     String password = "21uzd";
+
+    //String url = System.getProperty("url") ;
+    // String user = System.getProperty("user");
+    //String password = System.getProperty("password") ;
 
     @SneakyThrows
     public String getStatusFromPaymentEntity() {
@@ -29,7 +32,6 @@ public class SQLMethods {
         return status;
     }
 
-
     @SneakyThrows
     public long getNumberOfRawsFromPaymentEntity() {
         QueryRunner runner = new QueryRunner();
@@ -44,6 +46,5 @@ public class SQLMethods {
         }
         return numberOfRaws;
     }
-
 
 }
