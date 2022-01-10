@@ -9,13 +9,9 @@ import java.sql.DriverManager;
 
 public class SQLMethods {
 
-    String url = "jdbc:mysql://127.0.0.1:3308/diplom";
+    String url = "jdbc:mysql://localhost:3306/diplom";
     String user = "dmitry";
     String password = "21uzd";
-
-    //String url = System.getProperty("url") ;
-    // String user = System.getProperty("user");
-    //String password = System.getProperty("password") ;
 
     @SneakyThrows
     public String getStatusFromPaymentEntity() {
