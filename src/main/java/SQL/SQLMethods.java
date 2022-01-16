@@ -7,11 +7,12 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 public class SQLMethods {
 
-    String url = "jdbc:mysql://localhost:3306/diplom";
-    String user = "dmitry";
-    String password = "21uzd";
+    String url = System.getProperty("db.url");
+    String user = System.getProperty("db.user");
+    String password = System.getProperty("db.password");
 
     @SneakyThrows
     public String getStatusFromPaymentEntity() {
@@ -42,5 +43,4 @@ public class SQLMethods {
         }
         return numberOfRaws;
     }
-
 }

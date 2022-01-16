@@ -82,12 +82,12 @@ public class UIPaymentWithCardTests {
         bankRejected.shouldNotBe(Condition.visible);
     }
 
-    void ckeckNumberOfRawsInPaymentEntity (long initialNumberOfRawsFromPaymentEntity,int x){
+    void ckeckNumberOfRawsInPaymentEntity(long initialNumberOfRawsFromPaymentEntity, int x) {
         long finalNumberOfRawsFromPaymentEntity = numberOfRawsFromPaymentEntity();
-        assertEquals(initialNumberOfRawsFromPaymentEntity+x, finalNumberOfRawsFromPaymentEntity);
+        assertEquals(initialNumberOfRawsFromPaymentEntity + x, finalNumberOfRawsFromPaymentEntity);
     }
 
-    PaymentWithCardPage choicePaymentByCard () {
+    PaymentWithCardPage choicePaymentByCard() {
         ChoiceOfPaymentPage choiceOfPaymentPage = new ChoiceOfPaymentPage();
         var withCardWay = choiceOfPaymentPage.selectPaymentByCard();
         return withCardWay;
@@ -108,7 +108,7 @@ public class UIPaymentWithCardTests {
         // статус оплаты после заполнения формы
         String statusAfterSendingDataToServer = statusAfterSendingDataToServer();
         // проверка количества записей в БД
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,1);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 1);
         // проверка статуса оплаты в БД
         assertEquals("APPROVED", statusAfterSendingDataToServer);
     }
@@ -121,7 +121,7 @@ public class UIPaymentWithCardTests {
         withCard.latinLettersInCardNumberField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatBankRejectedIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -132,7 +132,7 @@ public class UIPaymentWithCardTests {
         withCard.cyrillicLettersInCardNumberField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatBankRejectedIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -143,7 +143,7 @@ public class UIPaymentWithCardTests {
         withCard.symbolsInCardNumberField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatBankRejectedIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -154,7 +154,7 @@ public class UIPaymentWithCardTests {
         withCard.cardNumberFieldIsEmpty();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatBankRejectedIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -165,7 +165,7 @@ public class UIPaymentWithCardTests {
         withCard.numberOfDeclinedCard();
         String statusAfterSendingDataToServer = statusAfterSendingDataToServer();
         checkUIThatBankRejectedIsVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,1);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 1);
         assertEquals("DECLINED", statusAfterSendingDataToServer);
     }
 
@@ -177,7 +177,7 @@ public class UIPaymentWithCardTests {
         withCard.invalidMonthFormat();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -188,7 +188,7 @@ public class UIPaymentWithCardTests {
         withCard.notExistedMonth13();
         errorOfCardValidity.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -199,7 +199,7 @@ public class UIPaymentWithCardTests {
         withCard.notExistedMonth0();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -210,7 +210,7 @@ public class UIPaymentWithCardTests {
         withCard.latinLettersInMonthField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -221,7 +221,7 @@ public class UIPaymentWithCardTests {
         withCard.cyrillicLettersInMonthField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -232,7 +232,7 @@ public class UIPaymentWithCardTests {
         withCard.symbolsInMonthField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -243,7 +243,7 @@ public class UIPaymentWithCardTests {
         withCard.yearMoreThan5();
         errorOfCardValidity.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -254,7 +254,7 @@ public class UIPaymentWithCardTests {
         withCard.pastYear();
         ValidityError.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -265,7 +265,7 @@ public class UIPaymentWithCardTests {
         withCard.emptyYearField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -276,7 +276,7 @@ public class UIPaymentWithCardTests {
         withCard.latinLettersInYearField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -287,7 +287,7 @@ public class UIPaymentWithCardTests {
         withCard.cyrillicLettersInYearField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -298,7 +298,7 @@ public class UIPaymentWithCardTests {
         withCard.symbolsInYearField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -309,7 +309,7 @@ public class UIPaymentWithCardTests {
         withCard.cyrillicLettersInOwnerField();
         onlyLatinLetters.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -320,7 +320,7 @@ public class UIPaymentWithCardTests {
         withCard.symbolsInOwnerField();
         onlyLatinLetters.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -331,7 +331,7 @@ public class UIPaymentWithCardTests {
         withCard.emptyOwnerField();
         obligatoryOwnerField.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -342,7 +342,7 @@ public class UIPaymentWithCardTests {
         withCard.figuresInOwnerField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -353,7 +353,7 @@ public class UIPaymentWithCardTests {
         withCard.twoFiguresInCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -364,7 +364,7 @@ public class UIPaymentWithCardTests {
         withCard.oneFiguresInCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -375,7 +375,7 @@ public class UIPaymentWithCardTests {
         withCard.cyrillicLettersInCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -386,7 +386,7 @@ public class UIPaymentWithCardTests {
         withCard.latinLettersInCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -397,7 +397,7 @@ public class UIPaymentWithCardTests {
         withCard.symbolsInCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
     @Test
@@ -408,7 +408,7 @@ public class UIPaymentWithCardTests {
         withCard.emptyCVCField();
         notValidFormat.shouldBe(Condition.visible);
         checkUIThatSuccessIsNotVisible();
-        ckeckNumberOfRawsInPaymentEntity (initialNumberOfRawsFromPaymentEntity,0);
+        ckeckNumberOfRawsInPaymentEntity(initialNumberOfRawsFromPaymentEntity, 0);
     }
 
 }
